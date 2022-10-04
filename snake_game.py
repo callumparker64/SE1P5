@@ -20,6 +20,7 @@ y = round(maxHeight/2)
 
 dx = 0
 dy = 0
+direction = ""
 game_over = False
 #################################################################################################################
 
@@ -28,26 +29,34 @@ displayScreen = pygame.display.set_mode((maxWidth,maxHeight))
 pygame.display.update()
 clock = pygame.time.Clock()
 
+def draw_snake(snakeCoor):
+    for coor in snakeCoor:
+        pygame.draw.rect(displayScreen,snake_colour,[coor[0],coor[1],10,10])
+
 while game_over != True:
     for event in pygame.event.get():    
         if event.type==pygame.QUIT:
             game_over=True
         if event.type == pygame.KEYDOWN: #Code to check the user inputs for direction needs to be modified so that the player cannot reverse direction
-            if event.key == pygame.K_w or event.key == pygame.K_UP:
+            if event.key == pygame.K_w and direction != "S" or event.key == pygame.K_UP:
+                direction = "N"
                 dx = 0
                 dy = -10
-            elif event.key == pygame.K_a or event.key == pygame.K_LEFT:
+            elif event.key == pygame.K_a and direction != "E" or event.key == pygame.K_LEFT:
+                direction = "W"
                 dx = -10
                 dy = 0
-            elif event.key == pygame.K_s or event.key == pygame.K_DOWN:
+            elif event.key == pygame.K_s and direction != "N" or event.key == pygame.K_DOWN:
+                direction = "S"
                 dx = 0
                 dy = 10
-            elif event.key == pygame.K_d or event.key == pygame.K_RIGHT:
+            elif event.key == pygame.K_d and direction != "W" or event.key == pygame.K_RIGHT:
+                direction = "E"
                 dx = 10
                 dy = 0
-    if x >= maxWidth:
+    if x > maxWidth:
         x = 0
-    elif y >= maxHeight:
+    elif y > maxHeight:
         y = 0
     elif x < 0:
         x = maxWidth
@@ -55,7 +64,7 @@ while game_over != True:
         y = maxHeight
 
     x = x + dx
-    y = y + dy
+    y  = y + dy
 
     displayScreen.fill(background_colour)
     pygame.draw.rect(displayScreen, food_colour, [foodX, foodY, 10, 10])
@@ -63,15 +72,22 @@ while game_over != True:
     snakeFront.append(x)
     snakeFront.append(y)
     snakeCoor.append(snakeFront)
-    #Code Required to take snake coordinate and append to a list and extend the snake each time it collides with food
+    if len(snakeCoor) > playerScore + 1:
+        del snakeCoor[0]
 
-    #Code Required to remove food each time the snake collides with food
+    for i in snakeCoor[:-1]:
+        if i == snakeFront:
+            game_over = True
 
-    pygame.draw.rect(displayScreen,snake_colour,[x,y,10,10])
+    draw_snake(snakeCoor)
+
+
     pygame.display.update()
 
     if x == foodX and y == foodY:
         playerScore = playerScore + 1
+        foodX = round(random.randrange(0, maxWidth - 10) / 10.0) * 10.0
+        foodY = round(random.randrange(0, maxHeight - 10) / 10.0) * 10.0
         print(playerScore)
 
 
