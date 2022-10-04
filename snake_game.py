@@ -8,8 +8,8 @@ background_colour = (0,0,0)
 snake_colour = (180,36,240)
 food_colour = (255,255,255)
 
-maxWidth = 500
-maxHeight = 500
+maxWidth = 400
+maxHeight = 400
 
 foodX = round(random.randrange(0, maxWidth - 10) / 10.0) * 10.0
 foodY = round(random.randrange(0, maxHeight - 10) / 10.0) * 10.0
@@ -22,6 +22,10 @@ dx = 0
 dy = 0
 direction = ""
 game_over = False
+
+font = pygame.font.Font('freesansbold.ttf', 18)
+
+
 #################################################################################################################
 
 
@@ -66,7 +70,15 @@ while game_over != True:
     x = x + dx
     y  = y + dy
 
+
+
+
     displayScreen.fill(background_colour)
+    text = font.render(f"Score: {playerScore}", True, (0,125,25), (0,0,0))
+    textRect = text.get_rect()
+    textRect.center = (maxWidth/4-40, maxHeight/20-10)
+    displayScreen.blit(text, textRect)
+
     pygame.draw.rect(displayScreen, food_colour, [foodX, foodY, 10, 10])
     snakeFront = []
     snakeFront.append(x)
@@ -91,17 +103,14 @@ while game_over != True:
         print(playerScore)
 
 
-    clock.tick(20)   #Potential to add difficulties by changing the clock tick speed and or size of the play area.
+    clock.tick(20)  
 
 displayScreen.fill((255,255,255))
 
-my_msg = pygame.font.SysFont('arial',48)
-# text_surface = my_msg.render('Game Over', False, (255, 0, 0))
-# displayScreen.blit(text_surface, (maxWidth/3,maxHeight/3))
-# time.sleep(2)  
+my_msg = pygame.font.SysFont('freesansbold.ttf',43)
 displayScreen.fill((255,255,255))
-text_surface = my_msg.render(f"Your Score : {playerScore}", False, (255, 0, 0))
-displayScreen.blit(text_surface, (maxWidth/3,maxHeight/3))
+text_surface = my_msg.render(f"Game Over! Your Score : {playerScore}", False, (255, 0, 0))
+displayScreen.blit(text_surface, (maxWidth/3-130,maxHeight/3-60))
 
 pygame.display.update()
 time.sleep(2)   
