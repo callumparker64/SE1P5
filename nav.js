@@ -22,3 +22,18 @@ function signup(){
     window.location.href = "game.html"
 
 }
+
+function addreview(){
+    let review = document.getElementById("review_box").value;
+    alert("Review: "+review)
+}
+
+function editreview(){
+    let review = document.getElementById("review_box").value;
+    alert("Review: "+review)
+}
+
+function deletereview(){
+    let review = document.getElementById("review_box").value;
+    alert("Review: "+review)
+}

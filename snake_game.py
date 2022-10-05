@@ -42,22 +42,22 @@ while game_over != True:
         if event.type==pygame.QUIT:
             game_over=True
         if event.type == pygame.KEYDOWN: #Code to check the user inputs for direction needs to be modified so that the player cannot reverse direction
-            if event.key == pygame.K_w and direction != "S" or event.key == pygame.K_UP:
-                direction = "N"
+            if event.key == pygame.K_w and direction != "S" or event.key == pygame.K_UP and direction != "S":
                 dx = 0
                 dy = -10
-            elif event.key == pygame.K_a and direction != "E" or event.key == pygame.K_LEFT:
-                direction = "W"
+                direction = "N"
+            elif event.key == pygame.K_a and direction != "E" or event.key == pygame.K_LEFT and direction != "E":
                 dx = -10
                 dy = 0
-            elif event.key == pygame.K_s and direction != "N" or event.key == pygame.K_DOWN:
-                direction = "S"
+                direction = "W"
+            elif event.key == pygame.K_s and direction != "N" or event.key == pygame.K_DOWN and direction != "N":
                 dx = 0
                 dy = 10
-            elif event.key == pygame.K_d and direction != "W" or event.key == pygame.K_RIGHT:
-                direction = "E"
+                direction = "S"
+            elif event.key == pygame.K_d and direction != "W" or event.key == pygame.K_RIGHT and direction != "W":
                 dx = 10
                 dy = 0
+                direction = "E"
     if x > maxWidth:
         x = 0
     elif y > maxHeight:
@@ -74,7 +74,7 @@ while game_over != True:
 
 
     displayScreen.fill(background_colour)
-    text = font.render(f"Score: {playerScore}", True, (0,125,25), (0,0,0))
+    text = font.render(f"Score: {playerScore}", True, (140,15,180), (0,0,0))
     textRect = text.get_rect()
     textRect.center = (maxWidth/4-40, maxHeight/20-10)
     displayScreen.blit(text, textRect)
