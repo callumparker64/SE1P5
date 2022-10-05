@@ -38,26 +38,32 @@ def draw_snake(snakeCoor):
         pygame.draw.rect(displayScreen,snake_colour,[coor[0],coor[1],10,10])
 
 while game_over != True:
+
+    if dx == 0 and dy == -10:
+        direction = "N"
+    elif dx == 0 and dy == 10:
+        direction = "S"
+    elif dx == 10 and dy == 0:
+        direction = "E"
+    elif dx == -10 and dy == 0:
+        direction = "W"
+
     for event in pygame.event.get():    
         if event.type==pygame.QUIT:
             game_over=True
-        if event.type == pygame.KEYDOWN: #Code to check the user inputs for direction needs to be modified so that the player cannot reverse direction
+        if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_w and direction != "S" or event.key == pygame.K_UP and direction != "S":
                 dx = 0
                 dy = -10
-                direction = "N"
             elif event.key == pygame.K_a and direction != "E" or event.key == pygame.K_LEFT and direction != "E":
                 dx = -10
                 dy = 0
-                direction = "W"
             elif event.key == pygame.K_s and direction != "N" or event.key == pygame.K_DOWN and direction != "N":
                 dx = 0
                 dy = 10
-                direction = "S"
             elif event.key == pygame.K_d and direction != "W" or event.key == pygame.K_RIGHT and direction != "W":
                 dx = 10
                 dy = 0
-                direction = "E"
     if x > maxWidth:
         x = 0
     elif y > maxHeight:
@@ -69,8 +75,6 @@ while game_over != True:
 
     x = x + dx
     y  = y + dy
-
-
 
 
     displayScreen.fill(background_colour)
