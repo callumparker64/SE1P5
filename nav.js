@@ -1,3 +1,26 @@
+const fs = require('fs');
+const { json } = require('stream/consumers');
+// const data = require('./JSON/data.json');
+// const users = require('./JSON/users.json');
+// const reviews = require('./JSON/reviews.json');
+
+fs.readFile("./JSON/users.json","utf-8",(err, jsonString) => {
+    if(err){
+        console.log("Error")
+    }
+    else{
+        try{
+            const data = JSON.parse(jsonString);
+            console.log(data.name)
+        }
+        catch(e){
+            console.log("Parse Error",e)
+        }
+
+    }
+
+})
+
 function signin(){
     let username = document.getElementById("username").value;
     let password = document.getElementById("password").value;
