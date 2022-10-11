@@ -3,23 +3,63 @@ const { json } = require('stream/consumers');
 // const data = require('./JSON/data.json');
 // const users = require('./JSON/users.json');
 // const reviews = require('./JSON/reviews.json');
+function readJson(filePath, cb){
+    fs.readFile(filePath,'utf-8',(err, jsonString) => {
+        if(err){
+            return cb && cb(err);
+        }
+        else{
+            try{
+                const data = JSON.parse(jsonString);
+                return cb && cb(null,data);
+            }
+            catch(e){
+                return cb && cb(e);
+            }
 
-fs.readFile("./JSON/users.json","utf-8",(err, jsonString) => {
+        }
+
+    }) 
+}
+
+const newUser = {
+    "id": '2',
+    "name": 'Steve',
+    "dob":'27/08/94',
+    "username":'username2',
+    "password":'test123'
+}
+const jsonString = JSON.stringify(newUser);
+console.log(jsonString)
+
+
+readJson('./JSON/data.json',(err,data) => {
     if(err){
-        console.log("Error")
+        console.log(err);
     }
     else{
-        try{
-            const data = JSON.parse(jsonString);
-            console.log(data.name)
-        }
-        catch(e){
-            console.log("Parse Error",e)
-        }
-
+        console.log(data.users[0].name);
+        fs.writeFile('./JSON/users.json',JSON.stringify(data,null,2),err =>{
+        if(err){
+                console.log(err);
+            }
+            else{
+                console.log("Success");
+            }
+        })
     }
-
 })
+
+
+// fs.appendFile('./JSON/data.JSON',JSON.stringify(newUser),err =>{
+//     if(err){
+//             console.log(err);
+//         }
+//         else{
+//             console.log("Success");
+//         }
+// })
+
 
 function signin(){
     let username = document.getElementById("username").value;
