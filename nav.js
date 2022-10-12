@@ -106,8 +106,14 @@ function getReview(){
         { "uid":"1",  "rid":"0", "name":"Adam", "review":"estibulum volutpat dignissim enim id elementum. Morbi molestie pretium tristique. Cras accumsan dui eget arcu efficitur aliquet. Nullam sed nulla ut lacus dictum finibus. Aenean aliquam mi felis, nec tincidunt metus vestibulum ac. Donec ut pretium justo, eget interdum diam. Interdum et malesuada fames ac ante ipsum primis in faucibus.", "rating":"1" },
         { "uid":"2",  "rid":"0", "name":"Steve", "review":"Mauris et lorem rhoncus, cursus eros ut, pellentesque ante. Nunc laoreet ante sit amet diam sodales, vitae ornare odio finibus. Cras non nisi a diam imperdiet ultricies. Etiam consequat condimentum sem, vitae feugiat ipsum condimentum at.", "rating":"3" }
     ]}
-
+    for(const element of reviews.reviews)
+    {
+        let elements = document.createElement("p");
+        elements.innerText = (element.review);
+        document.getElementById("reviews").appendChild(elements);
+    }
     
+
 }
 function addreview(){
     let review = document.getElementById("review_box").value;
