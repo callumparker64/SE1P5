@@ -73,9 +73,6 @@ function signin(){
     
 }
    
-
-
-
 function signup(){
     let name = document.getElementById("su_name").value;
     let dob = document.getElementById("su_dob").value;
@@ -108,24 +105,42 @@ function getReview(){
     ]}
     for(const element of reviews.reviews)
     {
-        let elements = document.createElement("p");
-        elements.innerText = (element.review);
-        document.getElementById("reviews").appendChild(elements);
+        let names = document.createElement("p")
+        let generate_reviews = document.createElement("p");
+        names.innerText = (element.name);
+        generate_reviews.innerText = (element.review);
+        document.getElementById("reviews").appendChild(names);
+        document.getElementById("reviews").appendChild(generate_reviews);
     }
     
 
 }
-function addreview(){
+function addReview(){
+    const reviews = {"reviews":[
+        { "uid":"0", "rid":"0", "name":"John", "review":"In ornare metus dapibus scelerisque pretium. Proin aliquam euismod nulla vel vehicula.", "rating":"5" },
+        { "uid":"0", "rid":"1", "name":"John", "review":" Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", "rating":"4" },
+        { "uid":"1",  "rid":"0", "name":"Adam", "review":"estibulum volutpat dignissim enim id elementum. Morbi molestie pretium tristique. Cras accumsan dui eget arcu efficitur aliquet. Nullam sed nulla ut lacus dictum finibus. Aenean aliquam mi felis, nec tincidunt metus vestibulum ac. Donec ut pretium justo, eget interdum diam. Interdum et malesuada fames ac ante ipsum primis in faucibus.", "rating":"1" },
+        { "uid":"2",  "rid":"0", "name":"Steve", "review":"Mauris et lorem rhoncus, cursus eros ut, pellentesque ante. Nunc laoreet ante sit amet diam sodales, vitae ornare odio finibus. Cras non nisi a diam imperdiet ultricies. Etiam consequat condimentum sem, vitae feugiat ipsum condimentum at.", "rating":"3" }
+    ]}
+    let userRating = document.createElement("p");
+    let userReview = document.createElement("p");
+    let review = document.getElementById("user_review").value;
+    let rating = document.getElementById("rating").value;
+    userReview.innerText = (review);
+    userRating.innerText = (rating);
+    document.getElementById("add_review").appendChild(userReview);
+    document.getElementById("add_review").appendChild(userRating);
+    reviews.reviews.push("0","3","John",review,rating);
+    alert("Review: "+review + "Rating" + rating);
+}
+
+function editReview(){
     let review = document.getElementById("review_box").value;
+
     alert("Review: "+review)
 }
 
-function editreview(){
-    let review = document.getElementById("review_box").value;
-    alert("Review: "+review)
-}
-
-function deletereview(){
+function deleteReview(){
     let review = document.getElementById("review_box").value;
     alert("Review: "+review)
 }
