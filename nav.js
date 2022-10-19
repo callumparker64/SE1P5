@@ -64,7 +64,7 @@ function signin(){
         }
     }
     if(loggedIn === true){
-        window.location.href = "game.html";
+        window.location.href = "http://localhost:8000/";
     }
     else{
         alert("Incorrect Username or password please try again");
@@ -96,6 +96,7 @@ function signup(){
 
 }
 
+
 function getReview(){
     const reviews = {"reviews":[
         { "uid":"0", "rid":"0", "name":"John", "review":"In ornare metus dapibus scelerisque pretium. Proin aliquam euismod nulla vel vehicula.", "rating":"5" },
@@ -108,7 +109,7 @@ function getReview(){
         let names = document.createElement("p")
         let generate_reviews = document.createElement("p");
         names.innerText = (element.name);
-        generate_reviews.innerText = (element.review);
+        generate_reviews.innerText = (element.review + " Rating : " + element.rating);
         document.getElementById("reviews").appendChild(names);
         document.getElementById("reviews").appendChild(generate_reviews);
     }
