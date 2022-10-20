@@ -4,19 +4,292 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page</title>
+    <title>SNAKE GAME IN PYTHON</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet"
+    href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
 </head>
-<body> 
-    <h1>Welcome</h1>
-    <a href = "signup.html" target = "_self"> Sign Up </a>
-    <br>
-    <br>
-    <label>Username: </label>
-    <input id = "username">
-    <br>
-    <label>Password: </label>
-    <input id = "password" type = "password">
-    <button id = "sign_in" onclick="signin()">Sign In</button>
-    <script src ="nav.js"></script>
-</body>
+<body>
+    <header>
+        <a href="#" class="logo">SNAKE GAME</a>
+        <ul class="nav">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#games">Games</a></li>
+            <li><a href="#signup">SignUp</a></li>
+            <li><a href="#leaderboard">Leaderboard</a></li>
+            <li><a href="#tournaments">Tournaments</a></li>
+            <li><a href="#contact">Contact</a></li>  
+        </ul>
+        <label>Username: </label>
+        <input id = "username">
+        <br>
+        <label>Password: </label>
+        <input id = "password" type = "password">
+        <button id = "sign_in" onclick="signin()">Sign In</button>
+        <div class="action">
+            <div class="searchBx">
+                <a href="#"><i class='bx bx-search'></i></a>
+                <input type="text" placeholder="Search Games">
+            </div>
+        </div>
+        <div class="toggleMenu" onclick="toggleMenu();"></div>
+    </header>
+    <!--Home Banner-->
+    <div class="banner" id="home">
+        <div class="bg">
+            <div class="content">
+                <h3>A SKILLS-CITY SE1P5<br>
+                PYTHON PROJECT</h3>
+                <p>Lorem ipsum dolor, sit amet consectetur thank you very 
+                modi aliquam debitis saepe, eos quaerat neque numquam voluptas voluptatum labore
+                eos quaerat neque numquam voluptas voluptatum labore beatae  beatae 
+                eos quaerat neque numquam voluptas voluptatum labore beatae 
+                perspiciatis eos quaerat neque numquam voluptas voluptatum labore beatae sed!
+                Dolorem molestias ad suscipit sint esse.
+                ipsum dolor sit amet consectetur adipisicing elit. Iste nemo 
+                modi aliquam debitis saepe, eos quaerat neque numquam voluptas voluptatum labore
+                eos quaerat neque numquam voluptas voluptatum labore beatae  beatae 
+                eos quaerat neque numquam voluptas voluptatum labore beatae 
+                perspiciatis eos quaerat neque numquam voluptas voluptatum labore beatae sed!
+                Dolorem molestias ad suscipit sint esse.much</p>
+                <a href="#" class="btn">SignUp</a>
+            </div>
+            <!-- <img src="img\snakepass.jpg"> -->
+        </div>
+    </div>
+
+    <!--About-->
+    <div class="about" id="about">    
+        <div class="contentBx">
+            <h2>About Us</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste nemo 
+                modi aliquam debitis saepe, eos quaerat neque numquam voluptas voluptatum labore
+                eos quaerat neque numquam voluptas voluptatum labore beatae  beatae 
+                eos quaerat neque numquam voluptas voluptatum labore beatae 
+                perspiciatis eos quaerat neque numquam voluptas voluptatum labore beatae sed!
+                Dolorem molestias ad suscipit sint esse.
+                ipsum dolor sit amet consectetur adipisicing elit. Iste nemo 
+                modi aliquam debitis saepe, eos quaerat neque numquam voluptas voluptatum labore
+                eos quaerat neque numquam voluptas voluptatum labore beatae  beatae 
+                eos quaerat neque numquam voluptas voluptatum labore beatae 
+                perspiciatis eos quaerat neque numquam voluptas voluptatum labore beatae sed!
+                Dolorem molestias ad suscipit sint esse.
+            </p>
+            <a href="#">Read More</a>
+        </div>
+        <!-- <img src="img\snk1.jpg"> -->
+    </div>
+    <!--Games-->
+    <div class="games" id="games">
+        <h2>SNAKE and Other PyGames</h2>
+        <ul>
+            <li class="list active" data-filter="all">All</li>
+            <li class="list" data-filter="pc">Pc games</li>
+            <li class="list" data-filter="mobile">Mobile games</li>
+        </ul>
+        <div class="gamesPyt">
+            <div class="gamespy" data-item="pc">
+                <!-- <img src="img\snakegame.png"height = 500 width = 650> -->
+                <div class="content">
+                    <h4>SNAKE game</h4>
+                    <div class="progress-line"><span></span></div>
+                    <div class="info">
+                        <p>Ratings<br><span>4.8</span></p>
+                        <a href="#">Play Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!--tournaments-->
+<div class="tournaments" id="tournaments">
+    <h2>PyGames Tournaments</h2>
+    <div class="boxBx">
+        <div class="box">
+            <!-- <img src="img\Agar.io 1.jpg"height = 600 width = 500> -->
+            <div class="content">
+                <h4><span>20</span> Players online....</h4>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores facere 
+                    fugiat eaque quidem culpa similique dolore nesciunt iste officia! 
+                    Rerum perferendis saepe impedit culpa facilis illum rem dignissimos,
+                     eaque explicabo.</p>
+                     <div class="btn">
+                        <a href="#" class="watch">Play</a>
+                        <a href="#" class="join">Join now</a>
+                     </div>
+            </div>
+        </div>
+        <div class="box">
+            <!-- <img src="img\turtle2.png"height = 600 width = 500> -->
+            <div class="content">
+                <h4><span>30</span> Players online....</h4>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores facere 
+                    fugiat eaque quidem culpa similique dolore nesciunt iste officia! 
+                    Rerum perferendis saepe impedit culpa facilis illum rem dignissimos,
+                     eaque explicabo.</p>
+                     <div class="btn">
+                        <a href="#" class="watch">Play</a>
+                        <a href="#" class="join">Join now</a>
+                     </div>
+            </div>
+        </div>
+        <div class="box">
+            <!-- <img src="img\weapon pack.png"height = 300 width = 200> -->
+            <div class="content">
+                <h4><span>50</span> Players online....</h4>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores facere 
+                    fugiat eaque quidem culpa similique dolore nesciunt iste officia! 
+                    Rerum perferendis saepe impedit culpa facilis illum rem dignissimos,
+                     eaque explicabo.</p>
+                     <div class="btn">
+                        <a href="#" class="watch">Play</a>
+                        <a href="#" class="join">Join now</a>
+                     </div>
+            </div>
+        </div>
+        <div class="box">
+            <!-- <img src="img\tetris11.jpg"height = 600 width = 500> -->
+            <div class="content">
+                <h4><span>50</span> Players online....</h4>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores facere 
+                    fugiat eaque quidem culpa similique dolore nesciunt iste officia! 
+                    Rerum perferendis saepe impedit culpa facilis illum rem dignissimos,
+                     eaque explicabo.</p>
+                     <div class="btn">
+                        <a href="#" class="watch">Play</a>
+                        <a href="#" class="join">Join now</a>
+                     </div>
+            </div>
+        </div>
+        <div class="box">
+            <!-- <img src="img\hangman.jpg"height = 600 width = 500> -->
+            <div class="content">
+                <h4><span>10</span> Players online....</h4>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores facere 
+                    fugiat eaque quidem culpa similique dolore nesciunt iste officia! 
+                    Rerum perferendis saepe impedit culpa facilis illum rem dignissimos,
+                     eaque explicabo.</p>
+                     <div class="btn">
+                        <a href="#" class="watch">Play</a>
+                        <a href="#" class="join">Join now</a>
+                     </div>
+                  </div>
+              </div>
+          </div>
+        </div>
+    <!--contact-->
+<div class="contact" id="contact">
+    <!-- <img src="img\Contact-US.png"> -->
+    <div class="form">
+        <h1>Contact Us</h1>
+        <div class="inputBx">
+            <p>Enter Name</p>
+            <input type="text" placeholder="Full Name">
+        </div>
+        <div class="inputBx">
+            <p>Enter Email</p>
+            <input type="text" placeholder="Full Name">
+        <div class="inputBx">
+            <p>Message</p>
+            <textarea placeholder="Type here..."></textarea>
+        </div>
+        <div class="inputBx">
+            <input type="submit" name="Submit">
+        </div>
+    </div>
+</div>
+    <!--Footer-->
+    <footer>
+        <div class="info">
+            <a href="#"  class="logo">Snake game</a>
+            <p><i class='bx bx-copyright'></i>All Rights Reserved</p>
+            <ul>
+                <li><a href="https://github.com/callumparker64/SE1P5"><i class='bx bxl-github'></i></a></li>
+            </ul>
+        </div>
+    </footer>
+    <script>
+
+        /* Sticky NavBar */
+        window.addEventListener('scroll',function(){
+            var header = document.querySelector('header');
+            header.classList.toggle('sticky',window.scrolly > 0);
+        });
+        /*Responsive NavBar */
+        function toggleMenu(){
+            const toggleMenu = document.querySelector('.toggleMenu');
+            const nav = document.querySelector('.nav');
+            toggleMenu.classList.toggle('active')
+            nav.classList.toggle('active')
+        }
+        /* scrolling animation effects */
+        window.addEventListener('scroll',function(){
+            var anime = document.querySelectorAll('.animeX');
+            for(var s = 0; s < anime.length; s++){
+                var windowheight = window.innerHeight;
+                var animetop = anime[s].getBoundingClientRect().top;
+                var animepoint = 150;
+
+                if( animetop < windowheight - animepoint){
+                    anime[s].classList.add('active');
+                }
+                else{
+                    anime[s].classList.remove('active');
+                }
+
+            }
+        })
+
+        /* Filterables cards */
+        let list = document.querySelectorAll('.list');
+        let gamespy = document.querySelectorAll('.gamespy');
+        for(let i = 0; i<list.length; i++){
+            list[i].addEventListener('click',function(){
+                for(let j=0; j<list.length; j++){
+                    list[j].classList.remove('active');
+                }
+                this.classList.add('active');
+                let dataFilter = this.getAttribute('data-filter');
+                for( let k=0; k<gamespy.length; k++)
+                {
+                    gamespy[k].classList.remove('active');
+                    gamespy[k].classList.add('hide');
+                    if(gamespy[k].getAttribute('data-item')== dataFilter || dataFilter == 'all'){
+                        gamespy[k].classList.remove('hide');
+                        gamespy[k].classList.add('active');
+                    }
+                }
+            })
+        }
+
+        function signin(){
+        const users = {"users":[
+            { "id":"0", "name":"John", "dob":"10/05/87", "username":"username1",  "password":"12345" },
+            { "id":"1", "name":"Adam", "dob":"27/08/94", "username":"username2",  "password":"test123" },
+            { "id":"2", "name":"Steve", "dob":"21/04/88", "username":"username3",  "password":"pass123" }
+        ]}
+        let loggedIn = false;
+        let username = document.getElementById("username").value;
+        let password = document.getElementById("password").value;
+        for(let i = 0; i <= users.users.length - 1;i++)
+        {
+            if(username == users.users[i].username && password == users.users[i].password){
+                alert("Login Successful");
+                loggedIn = true;
+            }
+        }
+        if(loggedIn === true){
+            window.location.href = "http://localhost:5501/build/web/index.html";
+        }
+        else{
+            alert("Incorrect Username or password please try again");
+        }
+        
+        
+    }
+    </script>
+
+    </body>
 </html>
